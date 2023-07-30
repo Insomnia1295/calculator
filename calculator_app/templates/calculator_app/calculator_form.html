@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Calculator</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="number1">Enter the first number:</label>
+        <input type="text" name="number1" required>
+        <br>
+        <label for="number2">Enter the second number:</label>
+        <input type="text" name="number2" required>
+        <br>
+        <label for="function">Select a function:</label>
+        <select name="function" required>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <br>
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Calculator Result</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+    
+</head>
+<body>
+    <h1>Calculator Result</h1>
+
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% else %}
+        {% if result is not None %}
+            <p>Result: {{ result }}</p>
+        {% else %}
+            <p>Can not divide by 0.</p>
+        {% endif %}
+    {% endif %}
+
+    <a href="/calculator/">Back to Calculator</a>
+
+</body>
+</html>
