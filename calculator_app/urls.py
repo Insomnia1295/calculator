@@ -1,8 +1,8 @@
 from django.urls import path
-from. import views
+from .views import CalculatorView
 
-app_name='calculator_app'
+
 urlpatterns=[
-    path('', views.calculator_view, name='calculator')
+    path('', CalculatorView.as_view(), name='calculator'),
 
 ]

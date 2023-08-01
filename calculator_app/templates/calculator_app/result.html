@@ -1,12 +1,11 @@
+{% load static %}
 <html>
 <head>
     <title>Calculator Result</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-
-    
 </head>
-<body>
+<body style="background-image:url({% static 'image/calculatorimg.JPG' %})">
     <h1>Calculator Result</h1>
 
     {% if error_message %}
@@ -19,7 +18,8 @@
         {% endif %}
     {% endif %}
 
-    <a href="/calculator/">Back to Calculator</a>
-
+    <a href="/calculator/">    <input type="submit" value="Back to Calculator">
+    </a>
+   
 </body>
 </html>

@@ -1,7 +1,7 @@
 class Calculator:
-        def __init__(self):
-            self.number1 = None
-            self.number2 = None
+        # def __init__(self):
+        #     self.number1 = None
+        #     self.number2 = None
         def input_numbers(self):
             self.number1 = float(input("Enter the first number please: "))
             self.number2 = float(input("Enter the second number please:"))
@@ -11,7 +11,9 @@ class Calculator:
             return  self.number1 - self.number2
         def multiplication(self):
             return self.number1 * self.number2
-        def division(self):
+        def division(self, num1, num2):
+            if self.number2 is 0:
+                return "Nope"
             return self.number1 / self.number2
   
   

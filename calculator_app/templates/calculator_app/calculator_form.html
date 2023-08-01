@@ -1,11 +1,11 @@
+
 <html>
 <head>
     <title>Calculator</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-
 </head>
-<body>
+<body style="background-image: url('{% static 'image/calculatorimg.jpg' %}')">
     <h1>Calculator</h1>
     <form method="post">
         {% csrf_token %}
@@ -24,6 +24,9 @@
         </select>
         <br>
         <input type="submit" value="Calculate">
+        {% if error_message %}
+        <div class="error-message">{{ error_message }}</div>
+        {% endif %}
     </form>
 </body>
 </html>
