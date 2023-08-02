@@ -1,17 +1,18 @@
 from django.test import TestCase
 from django.urls import reverse
-from .calculator import Calculator
+from calculator_app.calculator import Calculator
+from .models import Calculator
+from .forms import CalculatorForm
+from django.core.exceptions import ValidationError
+
 
 class CalculatorViewTest(TestCase):
-    fixtures=['testdata.json']
     def test_calculator_addition(self):
         url = reverse('calculator')
         data= {
             'number1': 5,
             'number2': 10,
             'function': '+',
-
-
         }
         response= self.client.post(url, data)
         self.assertEqual(response.status_code, 200)
