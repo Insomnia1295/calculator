@@ -4,7 +4,7 @@ from .calculator import Calculator
 from .forms import CalculatorForm
 from django.shortcuts import render
 
-# Function based view
+# Function based view:
 #def calculator_view(request):
 #   if request.method == 'POST':
  #       calculator=Calculator()
@@ -37,7 +37,7 @@ from django.shortcuts import render
    # return render(request, 'calculator_app/calculator_form.html')
 
 
-# Class Based View
+# Class Based View:
 
 class CalculatorView(FormView):
     template_name = 'calculator_app/calculator_form.html'
