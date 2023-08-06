@@ -7,7 +7,7 @@
 </head>
 <body style="background-image:url({% static 'image/calculatorimg.JPG' %})">
     <h1>Calculator Result</h1>
-<form method="post">
+<div>
     {% if error_message %}
         <p>{{ error_message }}</p>
     {% else %}
@@ -20,6 +20,7 @@
 
     <a href="/calculator/"> <button type="button">Back to Calculator</button>   
     </a>
+</div>
 </form>  
 </body>
 </html>
