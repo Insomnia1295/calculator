@@ -3,6 +3,9 @@ from django.views.generic.edit import FormView
 from .calculator import Calculator
 from .forms import CalculatorForm
 from django.shortcuts import render
+from rest_framework.response import Response
+from rest_framework.decorators import APIView
+
 
 # Function based view:
 #def calculator_view(request):
@@ -76,3 +79,26 @@ class CalculatorView(FormView):
             return render(self.request, 'calculator_app/result.html', {'result': result, 'error_message': error_message})
         else:
             return render(self.request, 'calculator_app/calculator_form.html', {'background_image': background_image, 'error_message': error_message})
+
+#APIview:
+class CalculatorAPI(APIView):
+    def post(self, request, *args, **kwargs):
+        number1 = float(request.data.get('number1', 0))
+        number2 = float(request.data.get('number2', 0))
+        function = request.data.get('function')
+
+        if function == '+':
+            result = number1 + number2
+        elif function == '-':
+            result = number1 - number2
+        elif function == '*':
+            result = number1 * number2
+        elif function == '/':
+            if number2 != 0:
+                result = number1 / number2
+            else:
+                return Response({'error': 'Cannot divide by zero'}, status=400)
+        else:
+            return Response({'error': 'Invalid function'}, status=400)
+
+        return Response({'result': result})
